@@ -18,7 +18,6 @@ function Upload() {
     try {
       const res = await createResumeAnalyze(selectFile, job_description)
       setFeedback(res.data.feedback)
-      console.log("Upload success:", res)
     } catch (error) {
       console.error("Upload failed:", error)
     } finally {
