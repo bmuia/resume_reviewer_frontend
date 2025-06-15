@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# AI Resume Website Analyzer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the AI Resume Website Analyzer! This application helps job seekers optimize their resumes by providing intelligent analysis based on a given job description (optional). Upload your resume, and our AI will highlight **strengths**, identify **weaknesses**, and suggest **areas for improvement**.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+* [Features](#features)
+* [How It Works](#how-it-works)
+* [Backend Repository](#backend-repository)
+* [Frontend Setup](#frontend-setup)
+    * [Prerequisites](#prerequisites-frontend)
+    * [Screenshots](#screenshots)
+    * [Installation](#installation-frontend)
+    * [Running the Frontend](#running-the-frontend)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+* **Resume Upload:** Easily upload your resume in various formats (e.g., PDF, DOCX).
+* **Optional Job Description:** Provide a job description for more targeted and relevant analysis.
+* **AI-Powered Analysis:** Leverages **Google Gemini** to understand your resume and job description content.
+* **Strength Identification:** Pinpoints the strong aspects of your resume that align with best practices and the job description.
+* **Weakness Detection:** Highlights areas where your resume might fall short or could be improved.
+* **Improvement Suggestions:** Receives actionable recommendations to enhance your resume's effectiveness.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## How It Works
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.  **User Uploads:** You'll upload your resume and optionally a job description through the frontend.
+2.  **API Call:** The frontend sends these files to the backend's `/api/resume-review/` endpoint.
+3.  **AI Processing:** The backend (built with **Django** and running in **Docker**) utilizes **Google Gemini** to process both the resume and job description, extracting key information and performing a comparative analysis.
+4.  **Analysis Generation:** The AI generates a comprehensive analysis, including identified strengths, weaknesses, and tailored suggestions for improvement.
+5.  **Results Display:** The backend sends the analysis back to the frontend, which then presents it to you in an easy-to-understand format.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Backend Repository
 
-### `npm run eject`
+The core AI analysis and API services are handled by a separate backend application. You can find its repository here:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**[AI Resume Website Analyzer - Backend](https://github.com/bmuia/resume_reviewer_backend.git)**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This backend is built with **Django**, uses **Docker** for containerization, and integrates with **Google Gemini** for AI processing. Refer to its README for specific setup, configuration, and API endpoint details.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Frontend Setup
 
-## Learn More
+This section details how to set up and run the frontend for the AI Resume Website Analyzer.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Prerequisites (Frontend)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run this frontend application locally, you'll need:
 
-### Code Splitting
+* **Node.js:** The latest LTS (Long Term Support) version is highly recommended.
+* **npm** (Node Package Manager) or **Yarn:** For efficient management of project dependencies.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Screenshots
 
-### Analyzing the Bundle Size
+Here's a glimpse of the application in action:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![App Screenshot](public/images/img.png)
+![App Screenshot](public/images/img1.png)
 
-### Making a Progressive Web App
+### Installation (Frontend)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/bmuia/resume_reviewer_frontend.git
+    cd resume_reviewer_frontend 
+    ```
+2.  **Install dependencies:**
+    ```bash
+    npm install # or yarn install
+    ```
 
-### Advanced Configuration
+### Running the Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Once the dependencies are installed and configuration is set, you can start the development server:
 
-### Deployment
+```bash
+npm start # or yarn start
+```
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Usage
+1. Ensure both the backend (running via Docker, as specified in its repository's README) and frontend servers are active.
+2. Open your web browser and navigate to the frontend's URL (e.g., http://localhost:3000).
+3. On the website, you will find an interface to:
+  1. Upload your resume file.
+  2. Occasionally upload a job description text.
+4. Click the "Analyze" button.
+5. Wait for the AI to process your resume.
+6. The website will then display the analysis, including strengths, weaknesses, and actionable improvement suggestions.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Contributing
+We welcome contributions to improve the AI Resume Website Analyzer! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix: **git checkout -b feature/your-feature-name** or **bugfix/fix-something.**
+3. Make your changes and ensure they adhere to the project's coding standards.
+4. Write clear and concise commit messages.
+5. Push your changes to your forked repository.
+6. Open a Pull Request to the main branch of this repository, describing your changes in detail.
+
+---
+### License
+This project is licensed under the [MIT License](LICENSE).
